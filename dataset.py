@@ -43,8 +43,8 @@ class SSTDataset(Dataset):
             else:
                 sents.append(tree.to_labeled_lines()[0])
         sents = list(set(sents))
-        # dataX = torch.zeros(len(sents), seq_len)
-        dataX = torch.zeros(5, seq_len)
+        dataX = torch.zeros(len(sents), seq_len)
+        # dataX = torch.zeros(5, seq_len)
         dataY = []
         for label, sent in sents:
             review_text = BeautifulSoup(sent).get_text()
@@ -63,13 +63,11 @@ class SSTDataset(Dataset):
                     dataX[idx][j] = UNK_token
             dataY.append(label)
             idx += 1
-            if(idx == 5):
-                break
         return dataX.long(), dataY
 
     def __len__(self):
-        return 5
-        # return len(self.dataX)
+        # return 5
+        return len(self.dataX)
     
     def __getitem__(self, id):
         return self.dataX[id], self.dataY[id]
