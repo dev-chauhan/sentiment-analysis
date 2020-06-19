@@ -87,7 +87,7 @@ def train(params):
                                         device,
                                         batch_size=params["batch_size"])
         # logfile.write(f"train {tn_loss} {tn_acc*100}% \t val {val_loss} {val_acc*100}% \t test {tst_loss} {tst_acc*100}%\n")
-        logfile.write("train {:.4} {:.4}% \t val {:.4} {:.4}% \t test {:.4} {:.4}%".format(tn_loss, tn_acc*100, val_loss, val_acc*100, tst_loss, tst_acc*100))
+        logfile.write("train {:.4} {:.4}% \t val {:.4} {:.4}% \t test {:.4} {:.4}%\n".format(tn_loss, tn_acc*100, val_loss, val_acc*100, tst_loss, tst_acc*100))
         print("train {:.4} {:.4}% \t val {:.4} {:.4}% \t test {:.4} {:.4}%".format(tn_loss, tn_acc*100, val_loss, val_acc*100, tst_loss, tst_acc*100))
         if ((epoch+1)%8 == 0) or epoch == params["epochs"]-1:
             torch.save(classifier.state_dict(), params["savedir"] + f"{epoch}.tar")

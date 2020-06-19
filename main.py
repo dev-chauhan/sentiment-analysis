@@ -27,4 +27,5 @@ if __name__ == "__main__":
         "phrase": args.phrase,
         "pretrained": args.pretrained
     }
+    print(params)
     train(params)
