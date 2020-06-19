@@ -47,3 +47,10 @@ optional arguments:
   --pretrained          Use pre-trained model in the dataset
 
 ```
+
+## Results
+
+Dataset | Accuracy |
+---|--|
+SST-5 159.27K phrases |54.27|
+SST-5 8.534K sentences|30.81|
