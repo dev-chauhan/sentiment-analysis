@@ -11,6 +11,7 @@ parser.add_argument("--savedir", default="save/", help="dir in which to save cla
 parser.add_argument("--logdir", default="log/", help="dir in which to log training")
 parser.add_argument("--logfile", default="log/log_0", help="file in which to log training")
 parser.add_argument('--phrase', action='store_true', help="Use phrases in the dataset")
+parser.add_argument('--pretrained', action='store_true', help="Use pre-trained model in the dataset")
 
 args = parser.parse_args()
 
@@ -23,6 +24,7 @@ if __name__ == "__main__":
         "logdir": args.logdir,
         "logfile": args.logfile,
         "savedir": args.savedir,
-        "phrase": args.phrase
+        "phrase": args.phrase,
+        "pretrained": args.pretrained
     }
     train(params)

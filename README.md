@@ -30,7 +30,7 @@ python main.py
 ```
 usage: main.py [-h] [--epochs EPOCHS] [--lr LR] [--batch_size BATCH_SIZE]
                [--save_epoch SAVE_EPOCH] [--savedir SAVEDIR] [--logdir LOGDIR]
-               [--logfile LOGFILE] [--phrase]
+               [--logfile LOGFILE] [--phrase] [--pretrained]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -44,5 +44,6 @@ optional arguments:
   --logdir LOGDIR       dir in which to log training
   --logfile LOGFILE     file in which to log training
   --phrase              Use phrases in the dataset
+  --pretrained          Use pre-trained model in the dataset
 
 ```

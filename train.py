@@ -51,7 +51,7 @@ def train(params):
     devset = SSTDataset(split="dev", phrase=params["phrase"])
     testset = SSTDataset(split="test", phrase=params["phrase"])
 
-    encoder = PretrainedEncoder(len(word_to_ix))
+    encoder = PretrainedEncoder(len(word_to_ix), pretrained=params["pretrained"])
     classifier = Classifier(512, 256, 5)
 
     optimizer = torch.optim.Adam(classifier.parameters(),

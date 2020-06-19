@@ -8,12 +8,13 @@ def to_onehot(t, c):
 
 class PretrainedEncoder(nn.Module):
 
-    def __init__(self, vocab_size, dropout=0.5):
+    def __init__(self, vocab_size, dropout=0.5, pretrained=True):
         super(PretrainedEncoder, self).__init__()
         self.vocab_size = vocab_size
         self.encoder = Encoder(vocab_size, 512, dropout=dropout, avg=1)
-        checkpoint = torch.load("pretrained/150_-1.tar", map_location=torch.device("cpu"))
-        self.encoder.load_state_dict(checkpoint["encoder_state_dict"])
+        if pretrained:
+            checkpoint = torch.load("pretrained/150_-1.tar", map_location=torch.device("cpu"))
+            self.encoder.load_state_dict(checkpoint["encoder_state_dict"])
     
     def forward(self, x):
         return self.encoder(to_onehot(x, self.vocab_size))
